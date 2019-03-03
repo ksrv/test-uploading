@@ -27,6 +27,15 @@ export default async function (req, res, next) {
       fs.mkdirSync(chunkpath, { recursive: true });
     }
 
+    /**
+     * Если прилетело сообщение об ошибке чтения файла
+     */
+    if (chunk.error) {
+      await Chunks.removeChunks(chunks);
+      res.status(204).json({ message: 'upload fail' });
+      return;
+    }
+
     fs.writeFile(chunkname, chunk.content, 'base64');
 
     chunk.content = chunkname;
