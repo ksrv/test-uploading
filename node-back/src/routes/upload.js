@@ -28,7 +28,7 @@ export default async function (req, res, next) {
     }
 
     /**
-     * Если прилетело сообщение об ошибке чтения файла
+     * Если прилетело сообщение об ошибке чтения файла/чанка
      */
     if (chunk.error) {
       await Chunks.removeChunks(chunks);
