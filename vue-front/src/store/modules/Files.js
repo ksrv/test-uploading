@@ -83,7 +83,7 @@ const namespaced = true;
 
 
 const state = () => ({
-  chunk_size: 100 * 1024,
+  chunk_size: 1 * 1024 * 1024,
   files: [],
 });
 

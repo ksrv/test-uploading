@@ -29,14 +29,6 @@ const typeValidator = [
 ];
 
 
-const urlValidator = [
-  validate({
-    validator: 'isLength',
-    arguments: [3, 100],
-    message: 'URL файла должен быть длиной от{ARGS[0]} до {ARGS[1]} символов',
-  }) 
-];
-
 
 export const FilesSchema = new mongoose.Schema({
   name: {
@@ -69,7 +61,6 @@ export const FilesSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-    validate: urlValidator,
   },
 });
 
